@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@clerk/express": "^2.1.41",
         "@clerk/react": "^6.12.3",
         "cloudinary": "^2.10.0",
         "cors": "^2.8.6",
