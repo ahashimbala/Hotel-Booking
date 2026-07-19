@@ -12,7 +12,10 @@ export const createRoom = async(req, res) => {
 
         // upload images to cloudinary
         const uploadImages = req.files.map(async(file) => {
-            const response = await cloudinary.uploader.upload(file.path);
+            const response = await cloudinary.uploader.upload(file.path, {
+                folder: "Hotel-Booking",
+                resource_type: "image",
+            });
             return response.secure_url;
         })
 
@@ -28,22 +31,7 @@ export const createRoom = async(req, res) => {
         })
         res.json({ success: true, message: "Room created successfully" })
     } catch (error) {
-
-        console.log("========== ERROR ==========");
-        console.error(error);
-
-        if (error.http_code) {
-            console.log("HTTP Code:", error.http_code);
-        }
-
-        if (error.response) {
-            console.log("Response:", error.response);
-        }
-
-        res.json({
-            success: false,
-            message: error.message
-        });
+        res.json({ success: false, message: error.message })
     }
 }
 
