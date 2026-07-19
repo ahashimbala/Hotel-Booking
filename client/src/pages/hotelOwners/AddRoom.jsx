@@ -72,7 +72,10 @@ const AddRoom = () => {
         });
         setImages({ 1: null, 2: null, 3: null, 4: null });
       } else {
-        toast.error(data.message);
+        console.log(error);
+        console.log(error.response);
+        console.log(error.response?.data);
+        toast.error(error.response?.data?.message || error.message);
       }
     } catch (error) {
       console.log(error);
