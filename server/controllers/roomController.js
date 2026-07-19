@@ -28,7 +28,22 @@ export const createRoom = async(req, res) => {
         })
         res.json({ success: true, message: "Room created successfully" })
     } catch (error) {
-        res.json({ success: false, message: error.message })
+
+        console.log("========== ERROR ==========");
+        console.error(error);
+
+        if (error.http_code) {
+            console.log("HTTP Code:", error.http_code);
+        }
+
+        if (error.response) {
+            console.log("Response:", error.response);
+        }
+
+        res.json({
+            success: false,
+            message: error.message
+        });
     }
 }
 
