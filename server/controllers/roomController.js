@@ -12,10 +12,7 @@ export const createRoom = async(req, res) => {
 
         // upload images to cloudinary
         const uploadImages = req.files.map(async(file) => {
-            const response = await cloudinary.uploader.upload(file.path, {
-                upload_preset: "mypreset",
-                resource_type: "auto"
-            });
+            const response = await cloudinary.uploader.upload(file.path);
             return response.secure_url;
         })
 
@@ -54,7 +51,7 @@ export const getRooms = async(req, res) => {
 // API to get all rooms for a specific hotel
 export const getOwnerRooms = async(req, res) => {
     try {
-        const hotelData = await Hotel({ owner: req.user._id })
+        const hotelData = await Hotel.findOne({ owner: req.user._id })
         const rooms = await Room.find({ hotel: hotelData._id.toString() }).populate("hotel")
         res.json({ success: true, rooms });
     } catch (error) {
