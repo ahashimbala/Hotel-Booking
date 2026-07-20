@@ -3,24 +3,24 @@
 export const getUserData = async(req, res) => {
     try {
         const role = req.user.role;
-        const recentSearchedCities = req.user.recentSearchedCities;
-        res.json({ success: true, role, recentSearchedCities })
+        const recentsearchedCities = req.user.recentsearchedCities;
+        res.json({ success: true, role, recentsearchedCities })
     } catch (error) {
         res.json({ success: false, message: error.message })
     }
 }
 
 // Store User Recent Searched Cities
-export const storeRecentSearchedCities = async(req, res) => {
+export const storeRecentsearchedCities = async(req, res) => {
     try {
         const { recentSearchedCity } = req.body
         const user = await req.user;
 
-        if (user.recentSearchedCities.length < 3) {
-            user.recentSearchedCities.push(recentSearchedCity)
+        if (user.recentsearchedCities.length < 3) {
+            user.recentsearchedCities.push(recentSearchedCity)
         } else {
-            user.recentSearchedCities.shift();
-            user.recentSearchedCities.push(recentSearchedCity)
+            user.recentsearchedCities.shift();
+            user.recentsearchedCities.push(recentSearchedCity)
         }
         await user.save();
         res.json({ success: true, message: "City added" })

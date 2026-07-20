@@ -117,7 +117,7 @@ export const testimonials = [{
 
 // Facility Icon
 export const facilityIcons = {
-    "Free WiFi": assets.freeWifiIcon,
+    "Free WIFI": assets.freeWifiIcon,
     "Free Breakfast": assets.freeBreakfastIcon,
     "Room Service": assets.roomServiceIcon,
     "Mountain View": assets.mountainIcon,
@@ -142,7 +142,7 @@ export const userDummyData = {
     "createdAt": "2025-03-25T09:29:16.367Z",
     "updatedAt": "2025-04-10T06:34:48.719Z",
     "__v": 1,
-    "recentSearchedCities": [
+    "recentsearchedCities": [
         "Maitama"
     ]
 }
@@ -190,7 +190,7 @@ export const roomsDummyData = [{
         "hotel": hotelDummyData,
         "roomType": "Deluxe King Room",
         "pricePerNight": 120000, // ₦120,000 per night
-        "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
+        "amenities": ["Free WIFI", "Free Breakfast", "Room Service"],
         "images": [roomImg3, roomImg4, roomImg1, roomImg2],
         "isAvailable": true,
         "createdAt": "2025-04-10T06:24:06.285Z",
@@ -202,7 +202,7 @@ export const roomsDummyData = [{
         "hotel": hotelDummyData,
         "roomType": "Standard Studio",
         "pricePerNight": 85000, // ₦85,000 per night
-        "amenities": ["Free WiFi", "Room Service", "Pool Access"],
+        "amenities": ["Free WIFI", "Room Service", "Pool Access"],
         "images": [roomImg4, roomImg1, roomImg2, roomImg3],
         "isAvailable": true,
         "createdAt": "2025-04-10T06:23:20.252Z",

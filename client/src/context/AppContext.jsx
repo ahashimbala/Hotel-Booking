@@ -16,7 +16,7 @@ export const AppProvider = ({ children }) => {
 
   const [isOwner, setIsOwner] = useState(false);
   const [showHotelReg, setShowHotelReg] = useState(false);
-  const [searchCities, setSearchCities] = useState([]);
+  const [searchedCities, setsearchedCities] = useState([]);
   const [rooms, setRooms] = useState([]);
 
   const fetchRooms = async () => {
@@ -39,7 +39,7 @@ export const AppProvider = ({ children }) => {
       });
       if (data.success) {
         setIsOwner(data.role === "hotelOwner");
-        setSearchCities(data.recentSearchedCities);
+        setsearchedCities(data.recentsearchedCities);
       } else {
         // Retry Fetching user Details after 5 seconds
         setTimeout(() => {
@@ -67,8 +67,8 @@ export const AppProvider = ({ children }) => {
     axios,
     showHotelReg,
     setShowHotelReg,
-    searchCities,
-    setSearchCities,
+    searchedCities,
+    setsearchedCities,
     rooms,
     setRooms,
   };
