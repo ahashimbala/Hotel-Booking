@@ -76,7 +76,7 @@ export const createBooking = async(req, res) => {
                     <li><strong>Hotel Name:</strong> ${roomData.hotel.name}</li>
                     <li><strong>Location:</strong> ${roomData.hotel.address}</li>
                     <li><strong>Date:</strong> ${booking.checkInDate.toDateString()}</li>
-                    <li><strong>Booking Amount:</strong> ${process.env.CURRENCY || '$'} ${booking.totalPrice} /night</li>
+                    <li><strong>Booking Amount:</strong> ${process.env.CURRENCY || '₦'} ${booking.totalPrice} /night</li>
                 </ul>
                 <p>We look forward to welcoming you!</p>
                 <p>If you need to make any changes, feel free to contact us.</p>
@@ -87,6 +87,7 @@ export const createBooking = async(req, res) => {
         res.json({ success: true, message: "Booking created successfully" })
 
     } catch (error) {
+        console.error(error.response);
         console.log(error);
         res.json({ success: false, message: "Failed to create booking" })
     }
