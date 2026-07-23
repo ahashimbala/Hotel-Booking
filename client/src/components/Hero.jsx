@@ -17,13 +17,13 @@ const Hero = () => {
     );
 
     // add destination to searchedCities max 3 recent searched cities
-    setsearchedCities = (prevsearchedCities) => {
+    setsearchedCities((prevsearchedCities) => {
       const updatedsearchedCities = [...prevsearchedCities, destination];
       if (updatedsearchedCities.length > 3) {
         updatedsearchedCities.shift();
       }
       return updatedsearchedCities;
-    };
+    });
   };
 
   return (
